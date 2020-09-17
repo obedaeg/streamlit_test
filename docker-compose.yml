@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  
+  db:
+    image: mysql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root123
+      - MYSQL_DATABASE=test
+      - MYSQL_USER=test
+      - MYSQL_PASSWORD=test123
+
+  web:
+    image: obedaeg/rstudio-mysql
+    ports:
+      - 8787:8787
+    environment: 
+        - PASSWORD=obed
+    depends_on:
+      - db
+      
